@@ -3,7 +3,10 @@
 This is a web application that implements a previous python application of my own. Instead of using a GUI, I used the framework flask to build a simple web application. 
 
 ## Build a Docker Image
-* Change directory into the folder that the project exists
+* Change directory into the folder that the project exists, e.g.
+```
+cd C:\Users\myUser\projects\pydict_weather_web
+```
 * Run the following command to build an image with the name webflask
 ```
 docker build -t webflask:latest .
