@@ -13,7 +13,14 @@ def main(city):
         data = list(kairos.stripped_strings)
 
         if data:
-            response = f"""\
+            response = {
+                "one": "Η πρόγνωση του καιρού για {city} είναι:",
+                "two": f"""{data[2]} \n
+                {data[3]}{data[4]}
+                {data[5]} {data[6]} Μποφόρ"""
+            }
+            """
+            response = f\
                 Η πρόγνωση του καιρού για {city} είναι:
                 {data[2]}
                 {data[3]}{data[4]}
@@ -33,7 +40,8 @@ def main(city):
                 {data[20]}
                 {data[21]}{data[22]}
                 {data[23]} {data[24]} Μποφόρ
-                (Data from skaikairos.gr)"""
+                (Data from skaikairos.gr)
+            """
         else:
             response = f'There are no weather data for {city}'
 
