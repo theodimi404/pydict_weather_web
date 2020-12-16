@@ -12,4 +12,4 @@ docker build -t webflask:latest .
 ```
 docker run -d -p 5001:5000 webflask:latest
 ```
-* Access the web application by [typing](http://localhost:5001/home/)
+* Access the web application by typing [http://localhost:5001/home/)](http://localhost:5001/home/)
