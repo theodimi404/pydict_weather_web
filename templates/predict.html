@@ -1,9 +1,34 @@
 {% extends "layout.html" %}
 {% block content %}
-<p>
-      Selected city: {{ city.one }}
-    </p>
-<p>
-      Selected city: {{ city.two }}
-    </p>
+<div class="card-deck">
+  <div class="card text-primary">
+    <div class="card-body">
+    <img class="card-img-top" src="{{ city['4'] }}" alt="Card image cap">
+      <h5 class="card-title">{{ city["0"] }}</h5>
+      <p class="card-text">{{ city["1"] }} <br> {{ city["2"] }} <br> {{ city["3"] }}</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body text-primary">
+      <img class="card-img-top" src="{{ city['9'] }}" alt="Card image cap">
+      <h5 class="card-title">{{ city["5"] }}</h5>
+      <p class="card-text">{{ city["6"] }} <br> {{ city["7"] }} <br> {{ city["8"] }}</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body text-primary">
+      <img class="card-img-top" src="{{ city['14'] }}" alt="Card image cap">
+      <h5 class="card-title">{{ city["10"] }}</h5>
+      <p class="card-text">{{ city["11"] }} <br> {{ city["12"] }} <br> {{ city["13"] }}</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body text-primary">
+      <img class="card-img-top" src="{{ city['19'] }}" alt="Card image cap">
+      <h5 class="card-title">{{ city["15"] }}</h5>
+      <p class="card-text">{{ city["16"] }} <br> {{ city["17"] }} <br> {{ city["18"] }}</p>
+    </div>
+  </div>
+</div>
+
 {% endblock content %}

@@ -1,4 +1,6 @@
-import requests, bs4
+import bs4
+import requests
+import urllib.request
 
 
 def main(city):
@@ -9,40 +11,29 @@ def main(city):
         response = 'Your city of choise doesn\'t exist or you mispelled it.'
     else:
         soup = bs4.BeautifulSoup(res.text, 'html.parser')
-        kairos = soup.find("div", {"id": "forecast-upper-seven"})
-        data = list(kairos.stripped_strings)
+        # weather = soup.find("div", {"id": "forecast-upper-seven"})
+        four_days_prediction = soup.find_all("div", {"class": "analytic-forecast-div"})
+        prediction = dict()
 
-        if data:
-            response = {
-                "one": "Η πρόγνωση του καιρού για {city} είναι:",
-                "two": f"""{data[2]} \n
-                {data[3]}{data[4]}
-                {data[5]} {data[6]} Μποφόρ"""
-            }
-            """
-            response = f\
-                Η πρόγνωση του καιρού για {city} είναι:
-                {data[2]}
-                {data[3]}{data[4]}
-                {data[5]} {data[6]} Μποφόρ
-                ------
-                {data[7]}
-                {data[8]}
-                {data[9]}{data[10]}
-                {data[11]} {data[12]} Μποφόρ
-                ------
-                {data[13]}
-                {data[14]}
-                {data[15]}{data[16]}
-                {data[17]} {data[18]} Μποφόρ
-                ------
-                {data[19]}
-                {data[20]}
-                {data[21]}{data[22]}
-                {data[23]} {data[24]} Μποφόρ
-                (Data from skaikairos.gr)
-            """
-        else:
-            response = f'There are no weather data for {city}'
+        i = 0
+        for day in four_days_prediction:
+
+            date = day.find("strong", {"class": "upper-day-time"}).text
+            description = day.find("span", {"class": "weather_description"}).text
+            temperature = day.find("span", {"class": "upper-degrees"}).text
+            wind = day.find("span", {"class": "upper-wind"}).text + "Μποφόρ"
+            image = day.find("span", {"class": "top-img"})
+
+            prediction[str(i)] = date
+            prediction[str(i+1)] = description
+            prediction[str(i+2)] = temperature
+            prediction[str(i+3)] = wind
+            prediction[str(i+4)] = 'https://www.skaikairos.gr' + image.img['src']
+            print(prediction)
+            print(i)
+
+            i += 5
+
+        response = prediction
 
     return response
