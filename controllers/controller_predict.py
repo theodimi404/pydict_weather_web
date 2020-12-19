@@ -12,4 +12,7 @@ api = Blueprint(
 def predict():
     city1 = request.args.get('city', None)
     city = services_predict.main(city1)
-    return render_template('predict.html', city=city, city1=city1)
+    if city:
+        return render_template('predict.html', city=city, city1=city1)
+    else:
+        return render_template('error.html')

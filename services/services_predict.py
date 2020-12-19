@@ -1,6 +1,5 @@
 import bs4
 import requests
-import urllib.request
 
 
 def main(city):
@@ -8,7 +7,7 @@ def main(city):
 
     res = requests.get(url)
     if res.status_code == 404:
-        response = 'Your city of choise doesn\'t exist or you mispelled it.'
+        return False
     else:
         soup = bs4.BeautifulSoup(res.text, 'html.parser')
         # weather = soup.find("div", {"id": "forecast-upper-seven"})
@@ -29,8 +28,6 @@ def main(city):
             prediction[str(i+2)] = temperature
             prediction[str(i+3)] = wind
             prediction[str(i+4)] = 'https://www.skaikairos.gr' + image.img['src']
-            print(prediction)
-            print(i)
 
             i += 5
 
