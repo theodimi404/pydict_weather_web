@@ -47,7 +47,7 @@ pip install -r requirements.txt
 ```
 python app.py
 ```
-* Access the web application by typing [http://localhost:5000/home/](http://localhost:5001/home/)
+* Access the web application by typing [http://localhost:5000/home/](http://localhost:5000/home/)
 
 ### Disclaimer
 
