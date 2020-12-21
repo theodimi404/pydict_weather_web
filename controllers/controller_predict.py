@@ -10,9 +10,10 @@ api = Blueprint(
 
 @api.route('/')
 def predict():
-    city1 = request.args.get('city', None)
-    city = services_predict.main(city1)
-    if city:
-        return render_template('predict.html', city=city, city1=city1)
+    city_of_choice = request.args.get('city', None)
+    # Call the main function from services_predict to find the prediction
+    prediction = services_predict.main(city_of_choice)
+    if prediction:
+        return render_template('predict.html', prediction=prediction, city=city_of_choice)
     else:
         return render_template('error.html')

@@ -1,33 +1,33 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2 style="text-align: center;"> The weather forecast for {{ city1 }} is</h2>
+<h2 style="text-align: center;"> The weather forecast for {{ city }} is</h2>
 <div class="card-deck">
   <div class="card text-primary">
     <div class="card-body">
-    <img class="card-img-top" src="{{ city['4'] }}" alt="Card image cap">
-      <h5 class="card-title">{{ city["0"] }}</h5>
-      <p class="card-text">{{ city["1"] }} <br> {{ city["2"] }} <br> {{ city["3"] }}</p>
+    <img class="card-img-top" src="{{ prediction['4'] }}" alt="Card image cap">
+      <h5 class="card-title">{{ prediction["0"] }}</h5>
+      <p class="card-text">{{ prediction["1"] }} <br> {{ prediction["2"] }} <br> {{ prediction["3"] }}</p>
     </div>
   </div>
   <div class="card">
     <div class="card-body text-primary">
-      <img class="card-img-top" src="{{ city['9'] }}" alt="Card image cap">
-      <h5 class="card-title">{{ city["5"] }}</h5>
-      <p class="card-text">{{ city["6"] }} <br> {{ city["7"] }} <br> {{ city["8"] }}</p>
+      <img class="card-img-top" src="{{ prediction['9'] }}" alt="Card image cap">
+      <h5 class="card-title">{{ prediction["5"] }}</h5>
+      <p class="card-text">{{ prediction["6"] }} <br> {{ prediction["7"] }} <br> {{ prediction["8"] }}</p>
     </div>
   </div>
   <div class="card">
     <div class="card-body text-primary">
-      <img class="card-img-top" src="{{ city['14'] }}" alt="Card image cap">
-      <h5 class="card-title">{{ city["10"] }}</h5>
-      <p class="card-text">{{ city["11"] }} <br> {{ city["12"] }} <br> {{ city["13"] }}</p>
+      <img class="card-img-top" src="{{ prediction['14'] }}" alt="Card image cap">
+      <h5 class="card-title">{{ prediction["10"] }}</h5>
+      <p class="card-text">{{ prediction["11"] }} <br> {{ prediction["12"] }} <br> {{ prediction["13"] }}</p>
     </div>
   </div>
   <div class="card">
     <div class="card-body text-primary">
-      <img class="card-img-top" src="{{ city['19'] }}" alt="Card image cap">
-      <h5 class="card-title">{{ city["15"] }}</h5>
-      <p class="card-text">{{ city["16"] }} <br> {{ city["17"] }} <br> {{ city["18"] }}</p>
+      <img class="card-img-top" src="{{ prediction['19'] }}" alt="Card image cap">
+      <h5 class="card-title">{{ prediction["15"] }}</h5>
+      <p class="card-text">{{ prediction["16"] }} <br> {{ prediction["17"] }} <br> {{ prediction["18"] }}</p>
     </div>
   </div>
 </div>

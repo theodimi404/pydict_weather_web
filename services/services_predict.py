@@ -4,18 +4,20 @@ import requests
 
 def main(city):
     url = f'http://www.skaikairos.gr/main/{city}/position'
-
     res = requests.get(url)
+
     if res.status_code == 404:
+        # In case of an error 404 return False to return then error.html
         return False
     else:
         soup = bs4.BeautifulSoup(res.text, 'html.parser')
-        # weather = soup.find("div", {"id": "forecast-upper-seven"})
         four_days_prediction = soup.find_all("div", {"class": "analytic-forecast-div"})
         prediction = dict()
 
         i = 0
         for day in four_days_prediction:
+            # Loop through the array that holds the prediction for four days and save for each day
+            # the date, temp, description, wind and the image in a dictionary
 
             date = day.find("strong", {"class": "upper-day-time"}).text
             description = day.find("span", {"class": "weather_description"}).text
